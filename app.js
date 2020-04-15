@@ -18,7 +18,7 @@ var serverRouter = require('./routes/server');
 var userRouter = require('./routes/userRouter');
 
 const url = config.local_url;
-const connect = mongoose.connect(process.env.CUSTOMCONNSTR_MyConnectionString || process.env.MySecondConnectionString || url);
+const connect = mongoose.connect(process.env.CUSTOMCONNSTR_MyConnectionString || process.env.CUSTOMCONNSTR_MySecondConnectionString || url);
 
 connect.then((db) => {
     console.log("Nice Rohit! Connected correctly to server");
