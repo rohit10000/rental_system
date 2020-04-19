@@ -44,7 +44,7 @@ var id = localStorage.getItem('rent_id');
 
 const h1 = document.createElement('h1');
 h1.textContent = '';
-h1.style.display = 'none';
+h1.style.display = 'none';  
 div3.appendChild(h1);
 
 btn1.addEventListener('click', function () {
