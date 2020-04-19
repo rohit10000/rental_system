@@ -30,10 +30,18 @@ const rentSchema = new Schema({
         required: true,
         min: 0
     },
-    rentee_id: {
-        type: String,
+    tenant_id: {
+        type: Array,
         default: null,
         required: false
+    },
+    max_slot: {
+        type: Number,
+        default: 5
+    },
+    booked_slot: {
+        type: Number,
+        default: 0
     }
 }, {
     timestamps: true

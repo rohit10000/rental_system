@@ -31,18 +31,6 @@ const btn2 = document.createElement('button');
 
 btn1.setAttribute('class', 'btn btn-info');
 btn1.textContent = 'Confirm booking';
-btn1.addEventListener('click', function(){
-    fetch('/server/getId')
-        .then(res => res.json())
-        .then(data => {
-            if (data.status == 200) {
-                document.location.href = "/confirmation.html";
-            }
-            else {
-                p.textContent = 'You are not logged in!';
-            }
-        });
-});
 
 btn2.setAttribute('class', 'btn btn-warning');
 btn2.textContent = 'Cancel';
@@ -53,6 +41,68 @@ div2.appendChild(btn2);
 
 //end of second div
 var id = localStorage.getItem('rent_id');
+
+const h1 = document.createElement('h1');
+h1.textContent = '';
+h1.style.display = 'none';
+div3.appendChild(h1);
+
+btn1.addEventListener('click', function () {
+    fetch('/server/getId')
+        .then(res => res.json())
+        .then(data => {
+
+            if (data.status == 200) {
+                h1.textContent = data.user_id;
+
+                fetch(`/rents/${id}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        var user_id = h1.textContent;
+
+                        if (data.booked_slot < data.max_slot) {
+                            var tenants = data.tenant_id;
+                            var flag = 0;
+                            for (var i = 0; i < tenants.length; i++) {
+                                if (tenants[i] == user_id) {
+                                    flag = 1;
+                                    break;
+                                }
+                            }
+                            if (flag)
+                                p.textContent = 'You have already booked this rent';
+                            else {
+                                tenants.push(user_id);
+                                var c = data.booked_slot + 1;
+                                p.textContent = id;
+                                fetch(`/rents/${id}`, {
+                                    method: 'PUT',
+                                    body: JSON.stringify({
+                                        tenant_id: tenants,
+                                        booked_slot: c
+                                    }),
+                                    headers: {
+                                        'Content-type': 'application/json'
+                                    }
+                                })
+                                    .then(res => res.json())
+                                    .then(data => console.log(data));
+
+                                document.location.href = '/confirmation.html';
+                            }
+                        }
+                        else {
+                            p.textContent = 'Rent is completely booked.';
+                        }
+                  
+                    });
+
+            }
+            else {
+                p.textContent = 'You are not logged in!';
+            }
+        });
+});
 
 fetch(`/rents/${id}`)
     .then(res => res.json())

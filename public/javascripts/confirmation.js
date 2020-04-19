@@ -5,6 +5,7 @@ app.setAttribute('class', 'container');
 const div1 = document.createElement('div');
 const div2 = document.createElement('div');
 const div3 = document.createElement('div');
+const div4 = document.createElement('div');
 
 div1.setAttribute('id', 'rentInfo');
 div1.setAttribute('class', 'row');
@@ -19,6 +20,8 @@ app.appendChild(div3);
 app.appendChild(div1);
 app.appendChild(hr);
 app.appendChild(div2);
+app.appendChild(hr);
+app.appendChild(div4);
 
 const h2 = document.createElement('h2');
 h2.setAttribute('style', 'color: green; padding-left: 30px');
@@ -46,22 +49,53 @@ div1.appendChild(card);
 
 var rent_id = localStorage.getItem('rent_id');
 
+const h1 = document.createElement('h1');
+const p = document.createElement('p');
+h1.textContent = '';
+div4.appendChild(h1);
+div4.appendChild(p);
+
 btn1.addEventListener('click', function () {
-    fetch(`/rents/${rent_id}`, {
-        method: 'PUT',
-        body: JSON.stringify({
-            rentee_id: null
-        }),
-        headers: {
-            'Content-type': 'application/json'
-        }
-    })
+    fetch('/server/getId')
         .then(res => res.json())
-        .then(data => console.log(data));
-    document.location.href = '/index.html';
+        .then(data => {
+            if (data.status == 200) {
+
+                h1.textContent = data.user_id;
+
+                fetch(`/rents/${rent_id}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        var tenants = data.tenant_id;
+                        var user_id = h1.textContent;
+                        var res = [];
+                        for (var i = 0; i < tenants.length; i++) {
+                            if (tenants[i] != user_id) {
+                                res.push(tenants[i]);
+                            }
+                        }
+                        fetch(`/rents/${rent_id}`, {
+                            method: 'PUT',
+                            body: JSON.stringify({
+                                tenant_id: res,
+                                booked_slot: res.length
+                            }),
+                            headers: {
+                                'Content-type': 'application/json'
+                            }
+                        })
+                            .then(res => res.json())
+                            .then(data => console.log(data));
+
+                        document.location.href = "/index.html";
+                    });
+            }
+            else {
+                p.textContent = 'You are not logged in!';
+            }
+        });
+    
 });
-
-
 
 fetch('/server/getId')
     .then(res => res.json())
@@ -76,22 +110,9 @@ fetch('/server/getId')
                         card.appendChild(p);
                     }
                 });
-
-            fetch(`/rents/${rent_id}`, {
-                method: 'PUT',
-                body: JSON.stringify({
-                    rentee_id: data.user_id
-                }),
-                headers: {
-                    'Content-type': 'application/json'
-                }
-            })
-                .then(res => res.json())
-                .then(data =>console.log(data));
-
         }
         else {
-            document.location.href = "/error.html";
+            document.location.href = "/index.html";
         }
     });
 

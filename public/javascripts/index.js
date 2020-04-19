@@ -10,3 +10,16 @@ window.onclick = function (event) {
         modal_login.style.display = "none";
     }
 }
+//const app = document.getElementById('button');
+
+//fetch('/server/getId')
+//    .then(res => res.json())
+//    .then(data => {
+//        if (data.status == 200) {
+//            const btn3 = document.createElement('button');
+//            btn3.setAttribute('class', 'btn btn-success');
+//            btn3.textContent = 'Your Booked Rent';
+//            btn3.setAttribute('onclick', 'window.location.href = "/confirmation.html";')
+//            app.appendChild(btn3);
+//        }
+//    });

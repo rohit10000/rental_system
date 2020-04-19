@@ -8,6 +8,10 @@ const userSchema = new Schema({
     admin: {
         type: Boolean,
         default: false
+    },
+    rent_id: {
+        type: String,
+        default: null
     }
 }, {
     timestamps: true
