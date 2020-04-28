@@ -1,6 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\bin",
+    "\\models",
+    "\\public",
+    "\\public\\images",
+    "\\public\\javascripts",
+    "\\public\\stylesheets",
+    "\\routes"
   ],
+  "SelectedNode": "\\public\\javascripts\\house.js",
   "PreviewInSolutionExplorer": false
 }
