@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.use(bodyParser.json());
 
-router.route('/getId')
+router.route('/getUserId')
     .get((req, res, next) => {
 
         var p = new Promise((resolve, reject) => {

@@ -1,39 +1,42 @@
-const ele = document.getElementById('login');
+const app = document.getElementById("flip");
 
-function setText() {
-    fetch('/server/getId')
-        .then(res => res.json())
-        .then(data => {
+fetch('/server/getUserId')
+    .then(res => res.json())
+    .then(data => {
+        if(data.status == 200){
+            const span_log = document.createElement('span');
+            span_log.setAttribute('class', 'fa fa-book');
+            span_log.setAttribute('style', 'padding-right: 15px');
 
-            if (data.status == 200) {
-                ele.innerText = 'logout';
-                ele.setAttribute('onclick', function () {
-                    fetch('/auth/logout')
-                        .then(res => res.json())
-                        .then(data => console.log(data));
-                });
+            span_log.textContent = "Your Logs";
 
-            }
-            else {
-                ele.innerText = 'login';
-                ele.setAttribute('onclick', "document.getElementById('id02').style.display='block'");
+            span_log.onclick = function(){
+                document.location.href = 'confirmation.html';
+            };
 
-            }
-        });
-}
+            app.appendChild(span_log);
 
-setText();
+            const span_logout = document.createElement('span');
+            span_logout.setAttribute('class', 'fa fa-sign-out');
+            span_logout.textContent = "Logout";
+            app.appendChild(span_logout);
 
-ele.addEventListener('click', function () {
-    fetch('/server/getId')
-        .then(res => res.json())
-        .then(data => {
-            if (data.status == 200) {
+            span_logout.onclick = function () {
                 fetch('/auth/logout')
                     .then(res => res.json())
                     .then(data => console.log(data));
-                ele.innerText = 'login';
-                ele.setAttribute('onclick', "document.getElementById('id02').style.display='block'");
-            }
-        });
-});
+
+                document.location.href = 'index.html';
+            };
+        }
+        else{
+            app.setAttribute('data-toggle', 'modal');
+            app.setAttribute('data-target', '#loginModal');
+
+            const span = document.createElement('span');
+            span.setAttribute('class', 'fa fa-sign-in');
+            span.textContent = "Login";
+
+            app.appendChild(span);
+        }
+    });

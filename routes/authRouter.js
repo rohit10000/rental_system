@@ -11,7 +11,8 @@ router.post('/signup', (req, res, next) => {
         username: req.body.username,
         password: req.body.password,
         firstname: req.body.firstname,
-        lastname: req.body.lastname
+        lastname: req.body.lastname,
+        email: req.body.email,
     }),
         req.body.password, (err, user) => {
             if (err) {
@@ -23,7 +24,7 @@ router.post('/signup', (req, res, next) => {
                 passport.authenticate('local')(req, res, () => {
                     res.statusCode = 200;
                     res.setHeader('Content-Type', 'text/plain');
-                    res.redirect('/index.html');
+                    res.redirect('back');
                 });
             }
         });
@@ -31,14 +32,14 @@ router.post('/signup', (req, res, next) => {
 router.post('/login', passport.authenticate('local'), (req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.redirect('/index.html');
+    res.redirect('back');
 });
 
 router.get('/logout', (req, res) => {
     if (req.session) {
         req.session.destroy();
         res.clearCookie('session-id');
-        res.redirect('/');
+        // res.redirect('/');
     } 
     else {
         var err = new Error('You are not logged in!');

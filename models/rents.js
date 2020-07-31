@@ -3,6 +3,24 @@ const Schema = mongoose.Schema;
 require('mongoose-currency').loadType(mongoose);
 const Currency = mongoose.Types.Currency;
 
+const flatSchema = new Schema({
+   price:{
+       type: Number,
+       required: true,
+       min: 0
+   },
+    name:{
+       type: String,
+        required: true
+    },
+    state:{
+       type: Boolean,
+        required: true
+    },
+},{
+    timestamps: true
+});
+
 const rentSchema = new Schema({
     latitude: {
         type: Number,
@@ -25,24 +43,15 @@ const rentSchema = new Schema({
         type: String,
         required: false
     },
-    price: {
-        type: Currency,
-        required: true,
-        min: 0
-    },
-    tenant_id: {
-        type: Array,
-        default: null,
-        required: false
-    },
     max_slot: {
         type: Number,
-        default: 5
+        default: 0
     },
     booked_slot: {
         type: Number,
         default: 0
-    }
+    },
+    flat:[flatSchema]
 }, {
     timestamps: true
 });

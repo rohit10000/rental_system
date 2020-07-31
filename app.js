@@ -10,17 +10,14 @@ var passport = require('passport');
 var authenticate = require('./authenticate');
 var config = require('./config');
 
-var indexRouter = require('./routes/index');
 var authRouter = require('./routes/authRouter');
 var adminRouter = require('./routes/adminRouter');
-var rentRouter = require('./routes/rentRouter');
+var guestRouter = require('./routes/guestRouter');
 var serverRouter = require('./routes/server');
-var userRouter = require('./routes/userRouter');
+var customerRouter = require('./routes/customerRouter');
 
 const url = config.local_url;
-const remote_url = config.remote_url;
-
-const connect = mongoose.connect(process.env.MONGODB_URI || process.env.CUSTOMCONNSTR_MyConnectionString || process.env.CUSTOMCONNSTR_MySecondConnectionString || url);
+const connect = mongoose.connect(url);
 
 connect.then((db) => {
     console.log("Nice Rohit! Connected correctly to server");
@@ -49,10 +46,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', indexRouter);
-app.use('/rents', rentRouter);
 app.use('/auth', authRouter);
 app.use('/server', serverRouter);
+app.use('/', guestRouter);
 
 function auth(req, res, next) {
     console.log(req.user);
@@ -69,9 +65,22 @@ function auth(req, res, next) {
 
 app.use(auth);
 
-app.use('/users', userRouter);
-app.use('/admin/rents', adminRouter);
+app.use('/', customerRouter);
 
+function authAdmin(req, res, next){
+    if(!req.user.admin){
+        var err = new Error('You are not authenticated!');
+        err.status = 403;
+        next(err);
+    }
+    else{
+        next();
+    }
+}
+
+app.use(authAdmin);
+
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

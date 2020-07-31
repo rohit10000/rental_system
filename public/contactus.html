@@ -1,6 +1,7 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+
     <meta charset="utf-8">
     <title>Progress...</title>
 
@@ -11,9 +12,8 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link href="stylesheets/style.css" rel="stylesheet">
     <!--<link rel="stylesheet" type="text/css" href="./stylesheets/signup.css">-->
-
 </head>
 <body>
 
@@ -27,17 +27,16 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/auth/login" method="POST">
+                <form>
                     <div class="form-row">
                         <div class="form-group col-sm-4">
-                            <label class="sr-only" for="exampleInputEmail3">Username</label>
-                            <input type="text" class="form-control form-control-sm mr-1" id="exampleInputEmail3"
-                                   name="username" placeholder="Enter username">
+                            <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                            <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3"
+                                   placeholder="Enter email">
                         </div>
                         <div class="form-group col-sm-4">
                             <label class="sr-only" for="exampleInputPassword3">Password</label>
-                            <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3"
-                                   name="password" placeholder="Password">
+                            <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
                         </div>
                         <div class="col-sm-auto">
                             <div class="form-check">
@@ -75,19 +74,19 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/auth/signup" method="POST">
+                <form>
                     <div class="form-row">
                         <div class="form-group col-sm-12">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label class="sr-only" for="exampleInputFirstName">First Name</label>
                                     <input type="text" class="form-control form-control-sm mr-1" id="exampleInputFirstName"
-                                           name="firstname" placeholder="Enter FirstName">
+                                           placeholder="Enter FirstName">
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="sr-only" for="exampleInputLastName">Last Name</label>
                                     <input type="text" class="form-control form-control-sm mr-1" id="exampleInputLastName"
-                                           name="lastname" placeholder="Enter LastName">
+                                           placeholder="Enter LastName">
                                 </div>
                             </div>
 
@@ -95,17 +94,16 @@
                         <div class="form-group col-sm-12">
                             <label class="sr-only" for="exampleInputUsername">Username</label>
                             <input type="text" class="form-control form-control-sm mr-1" id="exampleInputUsername"
-                                   name="username" placeholder="Enter username">
+                                   placeholder="Enter username">
                         </div>
                         <div class="form-group col-sm-12">
                             <label class="sr-only" for="exampleInputEmail">Email address</label>
                             <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail"
-                                   name="email" placeholder="Enter email">
+                                   placeholder="Enter email">
                         </div>
                         <div class="form-group col-sm-12">
                             <label class="sr-only" for="exampleInputPassword">Password</label>
-                            <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword"
-                                   name="password" placeholder="Password">
+                            <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword" placeholder="Password">
                         </div>
                     </div>
                     <div class="form-row">
@@ -126,71 +124,157 @@
     </div>
 </div>
 
+
 <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
     <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand mr-auto" href="./index.html"><img src="images/logo.png" height="70" width="100"></a>
+        <a class="navbar-brand mr-auto" href="#"><img src="images/logo.png" height="70" width="100"></a>
         <div class="collapse navbar-collapse" id="Navbar">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="./index.html"><span class="fa fa-home"></span>Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="./aboutus.html"><span class="fa fa-info"></span>About</a></li>
-                <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card"></span>Contact</a></li>
+                <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-address-card"></span>Contact</a></li>
             </ul>
             <span class="navbar-text pointer">
-                <a id="flip">
-
+                <a data-toggle="modal" data-target="#loginModal">
+                    <span class="fa fa-sign-in">Login</span>
                 </a>
             </span>
         </div>
     </div>
 </nav>
-
 <header class="jumbotron">
     <div class="container">
-        <div class="row row-header"></div>
+        <div class="row row-header">
+            <div class="col-12 col-sm-6">
+                <h1>Gometech</h1>
+                <p>find a dream place to live your dream.</p>
+            </div>
+            <div class="col-12 col-sm-3 align-self-center">
+                <img src="img/logo.png" class="img-fluid">
+            </div>
+
+        </div>
     </div>
 </header>
-
 <div class="container">
     <div class="row">
         <ol class="col-12 breadcrumb">
             <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="./map.html">Map</a></li>
-            <li class="breadcrumb-item active">House</li>
+            <li class="breadcrumb-item active">Contact Us</li>
         </ol>
-    </div>
-    <div class="row">
-        <div class="col-12 col-sm-6">
-            <div class="card">
-                <h3 class="card-header bg-primary text-white">Details of Owner</h3>
-                <div class="card-body">
-                    <dl class="row" id="house_info">
-                    </dl>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6">
-            <div class="row" id="house_map" style="min-height: 300px; border-color: deepskyblue; border-width: medium">
-
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="row">
         <div class="col-12">
-            <h2>Flat Information</h2>
-            <ul class="nav nav-tabs" id="flatNavTab">
+            <h3>Contact Us</h3>
+            <hr>
+        </div>
+    </div>
 
-            </ul>
-            <div class="tab-content" id="navContent">
-
+    <div class="row row-content">
+        <div class="col-12">
+            <h3>Location Information</h3>
+        </div>
+        <div class="col-12 col-sm-4 offset-sm-1">
+            <h5>Our Address</h5>
+            <address style="font-size: 100%">
+                51, Manai, Jamalpur<br>
+                Mirzapur 231302<br>
+                INDIA<br>
+                <i class="fa fa-mobile-phone"></i> +91 1234567890<br>
+                <i class="fa fa-envelope"></i> <a href="mailto:rohits.games@gmail.com">gamesumo@games.net</a>
+            </address>
+        </div>
+        <div class="col-12 col-sm-6 offset-sm-1">
+            <h5>Map of our Location</h5>
+        </div>
+        <div class="col-12 col-sm-11 offset-sm-1">
+            <div class="btn-group" role="group">
+                <a role="button" class="btn btn-primary" href="tel:+911234567890">
+                    <i class="fa fa-phone"></i>Call</a>
+                <a role="button" class="btn btn-info"><i class="fa fa-skype"></i>Skype</a>
+                <a role="button" class="btn btn-success" href="mailto:rohits.games@gmail.com">
+                    <i class="fa fa-envelope-o"></i>Email</a>
             </div>
         </div>
     </div>
+
+    <div class="row row-content">
+        <div class="col-12">
+            <h3>Send us your Feedback</h3>
+        </div>
+        <div class="col-12 col-md-9">
+            <form>
+                <div class="form-group row">
+                    <label for="firstname" class="col-md-2 col-form-label">First Name</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="firstname" name="firstname"
+                               placeholder="First Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lastname" class="col-md-2 col-form-label">Last Name</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="lastname" name="lastname"
+                               placeholder="Last Name">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="telnum" class="col-12 col-md-2 col-form-label">Contact Tel.</label>
+                    <div class="col-5 col-md-3">
+                        <input type="tel" class="form-control" id="areacode" name="areacode"
+                               placeholder="Area Code">
+                    </div>
+                    <div class="col-7 col-md-7">
+                        <input type="tel" class="form-control" id="telnum" name="telnum"
+                               placeholder="Tel. Number">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="emailid" class="col-md-2 col-form-label">Email</label>
+                    <div class="col-md-10">
+                        <input type="email" class="form-control" id="emailid" name="email"
+                               placeholder="Email">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-6 offset-md-2">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="approve" id="approve" value="">
+                            <label class="form-check-label" for="approve">
+                                <strong>May we contact you?</strong>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 offset-md-1">
+                        <select class="form-control">
+                            <option>Tel.</option>
+                            <option>Email</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="feedback" class="col-md-2 col-form-label">Your Feedback</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" id="feedback" name="feedback" rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="offset-md-2 col-md-10">
+                        <button type="submit" class="btn btn-primary">Send Feedback</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-12 col-md">
+        </div>
+    </div>
+
 </div>
-<br>
 
 <footer class="footer">
     <div class="container">
@@ -199,7 +283,7 @@
                 <ul class="list-unstyled">
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./aboutus.html">About</a></li>
-                    <li><a href="./contactus.html">Contact</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
             <div class="col-4 col-sm-3 justify-content-center" style="padding-top: 20px">
@@ -225,17 +309,9 @@
         </div>
     </div>
 </footer>
-<!-- The Modal (contains the Sign Up form) -->
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTF6shP9YmjCbpT2uEDzxES7Ah0pv_gSY"
-        type="text/javascript"></script>
 
 <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<script src="./javascripts/flip.js"></script>
-<script src="./javascripts/house.js"></script>
-
 </body>
 </html>
