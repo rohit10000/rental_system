@@ -60,7 +60,7 @@ fetch('/server/getUserId')
                                 media_div.setAttribute('style', 'margin: 40px; ' +
                                     'margin-top:0px; background-color: #FEBD69;'+
                                     'padding: 20px; border-radius:3%; border-width: 4px; border-color: orange;' +
-                                    'border-style: solid');
+                                    'border-style: solid; box-shadow: 10px 10px 5px #aaaaaa;');
 
                                 app_.appendChild(media_div);
 

@@ -28,11 +28,11 @@ body{
     border-bottom: 1px ridge;
     min-height:400px;
 }
-
 .footer{
     background-color: #37475A;
     margin:0px auto;
     padding: 20px 0px 20px 0px;
+    min-height: 100px;
 }
 .jumbotron {
     padding:70px 30px 70px 30px;
