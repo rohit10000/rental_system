@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-
     <meta charset="utf-8">
     <title>Progress...</title>
 
@@ -12,8 +11,9 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-    <link href="stylesheets/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./stylesheets/style.css">
     <!--<link rel="stylesheet" type="text/css" href="./stylesheets/signup.css">-->
+
 </head>
 <body>
 
@@ -27,16 +27,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="/auth/login" method="POST">
                     <div class="form-row">
                         <div class="form-group col-sm-4">
-                            <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                            <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3"
-                                   placeholder="Enter email">
+                            <label class="sr-only" for="exampleInputEmail3">Username</label>
+                            <input type="text" class="form-control form-control-sm mr-1" id="exampleInputEmail3"
+                                   name="username" placeholder="Enter username">
                         </div>
                         <div class="form-group col-sm-4">
                             <label class="sr-only" for="exampleInputPassword3">Password</label>
-                            <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
+                            <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3"
+                                   name="password" placeholder="Password">
                         </div>
                         <div class="col-sm-auto">
                             <div class="form-check">
@@ -74,19 +75,19 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="/auth/signup" method="POST">
                     <div class="form-row">
                         <div class="form-group col-sm-12">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label class="sr-only" for="exampleInputFirstName">First Name</label>
                                     <input type="text" class="form-control form-control-sm mr-1" id="exampleInputFirstName"
-                                           placeholder="Enter FirstName">
+                                           name="firstname" placeholder="Enter FirstName">
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="sr-only" for="exampleInputLastName">Last Name</label>
                                     <input type="text" class="form-control form-control-sm mr-1" id="exampleInputLastName"
-                                           placeholder="Enter LastName">
+                                           name="lastname" placeholder="Enter LastName">
                                 </div>
                             </div>
 
@@ -94,16 +95,17 @@
                         <div class="form-group col-sm-12">
                             <label class="sr-only" for="exampleInputUsername">Username</label>
                             <input type="text" class="form-control form-control-sm mr-1" id="exampleInputUsername"
-                                   placeholder="Enter username">
+                                   name="username" placeholder="Enter username">
                         </div>
                         <div class="form-group col-sm-12">
                             <label class="sr-only" for="exampleInputEmail">Email address</label>
                             <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail"
-                                   placeholder="Enter email">
+                                   name="email" placeholder="Enter email">
                         </div>
                         <div class="form-group col-sm-12">
                             <label class="sr-only" for="exampleInputPassword">Password</label>
-                            <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword" placeholder="Password">
+                            <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword"
+                                   name="password" placeholder="Password">
                         </div>
                     </div>
                     <div class="form-row">
@@ -124,53 +126,40 @@
     </div>
 </div>
 
-
 <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
     <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand mr-auto" href="#"><img src="images/logo.png" height="70" width="100"></a>
+        <a class="navbar-brand mr-auto" href="./index.html"><img src="images/logo.png" height="70" width="100"></a>
         <div class="collapse navbar-collapse" id="Navbar">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="./index.html"><span class="fa fa-home"></span>Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="./aboutus.html"><span class="fa fa-info"></span>About</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-address-card"></span>Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card"></span>Contact</a></li>
             </ul>
             <span class="navbar-text pointer">
-                <a data-toggle="modal" data-target="#loginModal">
-                    <span class="fa fa-sign-in">Login</span>
+                <a id="flip">
+
                 </a>
             </span>
         </div>
     </div>
 </nav>
+
 <header class="jumbotron">
     <div class="container">
-        <div class="row row-header">
-            <div class="col-12 col-sm-6">
-                <h1>Gometech</h1>
-                <p>find a dream place to live your dream.</p>
-            </div>
-            <div class="col-12 col-sm-3 align-self-center">
-                <img src="img/logo.png" class="img-fluid">
-            </div>
-
-        </div>
+        <div class="row row-header"></div>
     </div>
 </header>
+
 <div class="container">
     <div class="row">
         <ol class="col-12 breadcrumb">
             <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-            <li class="breadcrumb-item active">Contact Us</li>
+            <li class="breadcrumb-item active">Contact</li>
         </ol>
-        <div class="col-12">
-            <h3>Contact Us</h3>
-            <hr>
-        </div>
     </div>
-
     <div class="row row-content">
         <div class="col-12">
             <h3>Location Information</h3>
@@ -198,7 +187,6 @@
             </div>
         </div>
     </div>
-
     <div class="row row-content">
         <div class="col-12">
             <h3>Send us your Feedback</h3>
@@ -242,17 +230,11 @@
                 <div class="form-group row">
                     <div class="col-md-6 offset-md-2">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="approve" id="approve" value="">
+                            <input type="checkbox" class="form-check-input" name="approve" id="approve" value="true">
                             <label class="form-check-label" for="approve">
                                 <strong>May we contact you?</strong>
                             </label>
                         </div>
-                    </div>
-                    <div class="col-md-3 offset-md-1">
-                        <select class="form-control">
-                            <option>Tel.</option>
-                            <option>Email</option>
-                        </select>
                     </div>
                 </div>
 
@@ -264,7 +246,9 @@
                 </div>
                 <div class="form-group row">
                     <div class="offset-md-2 col-md-10">
-                        <button type="submit" class="btn btn-primary">Send Feedback</button>
+                        <button type="submit" class="btn btn-primary" onclick="sendFeedback()">
+                            Send Feedback
+                        </button>
                     </div>
                 </div>
 
@@ -273,8 +257,8 @@
         <div class="col-12 col-md">
         </div>
     </div>
-
 </div>
+<br>
 
 <footer class="footer">
     <div class="container">
@@ -283,7 +267,7 @@
                 <ul class="list-unstyled">
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./aboutus.html">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="./contactus.html">Contact</a></li>
                 </ul>
             </div>
             <div class="col-4 col-sm-3 justify-content-center" style="padding-top: 20px">
@@ -309,9 +293,18 @@
         </div>
     </div>
 </footer>
+<!-- The Modal (contains the Sign Up form) -->
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTF6shP9YmjCbpT2uEDzxES7Ah0pv_gSY"
+        type="text/javascript"></script>
 
 <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="./javascripts/flip.js"></script>
+
 </body>
 </html>
+
+
