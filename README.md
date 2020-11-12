@@ -9,6 +9,7 @@ to it owner without wasting any further time and money in
 the broker.
 </p>
 <br>
+<h5>Website <a href="http://34.121.55.11/">link</a></h5>
 <h3>Requirements covered are as follows:</h3>
 <ul>
 <li>User can see to the list of house for rent in the city.</li>
@@ -50,7 +51,7 @@ run the command <i><b>npm install</b></i>.</li>
 <li>Run the command <i><b>npm start</b></i>. Now our system server will start
 running in <i><b>localhost:5000</b></i></li>
 <li>Now post some rent information from the local using the
-<i><b>localhost:5000/rents</b></i> api. You can use postman for the same.</li>
+<i><b>localhost:5000/admin/rents</b></i> api. You can use postman for the same.</li>
 A sample post request that you can use can be:
 
 ```
@@ -77,6 +78,10 @@ A sample post request that you can use can be:
 }
 
 ```
+
+<li>But before posting rents you need to authenticate 
+by first signing up and then sending login post request to
+<i><b>localhost:5000/auth/login</b></i></li>
 </ul>
 
 
