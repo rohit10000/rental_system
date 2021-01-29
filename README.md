@@ -9,7 +9,6 @@ to it owner without wasting any further time and money in
 the broker.
 </p>
 <br>
-<h5>Website <a href="http://34.121.55.11/">link</a></h5>
 <h3>Requirements covered are as follows:</h3>
 <ul>
 <li>User can see to the list of house for rent in the city.</li>
@@ -84,5 +83,18 @@ by first signing up and then sending login post request to
 <i><b>localhost:5000/auth/login</b></i></li>
 </ul>
 
+Screenshots for the system are as follows:
+
+### Web UI
 
 
+![alt text](images/web/pic1.png)
+![alt text](images/web/pic2.png)
+![alt text](images/web/pic3.png)
+![alt text](images/web/pic4.png)
+![alt text](images/web/pic5.png)
+![alt text](images/web/pic6.png)
+![alt text](images/web/pic7.png)
+![alt text](images/web/pic8.png)
+
+Happy coding!!
