@@ -87,14 +87,21 @@ Screenshots for the system are as follows:
 
 ### Web UI
 
-<img src="images/web/pic1.png" width="30%" height="30%">
-<img src="images/web/pic2.png" width="30%" height="30%">
-<img src="images/web/pic3.png" width="30%" height="30%">
-<img src="images/web/pic4.png" width="30%" height="30%">
-<img src="images/web/pic5.png" width="30%" height="30%">
-<img src="images/web/pic6.png" width="30%" height="30%">
-<img src="images/web/pic7.png" width="30%" height="30%">
-<img src="images/web/pic8.png" width="30%" height="30%">
+<div>
+<img src="images/web/pic1.png" width="40%" height="40%">
+<img src="images/web/pic2.png" width="40%" height="40%">
+</div>
+<div>
+<img src="images/web/pic3.png" width="40%" height="40%">
+
+<img src="images/web/pic4.png" width="40%" height="40%">
+</div>
+<img src="images/web/pic5.png" width="40%" height="40%">
+<img src="images/web/pic6.png" width="40%" height="40%">
+<div>
+<img src="images/web/pic7.png" width="40%" height="40%">
+<img src="images/web/pic8.png" width="40%" height="40%">
+</div>
 
 
 Happy coding!!
