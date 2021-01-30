@@ -96,10 +96,11 @@ Screenshots for the system are as follows:
 
 <img src="images/web/pic4.png" width="40%" height="40%">
 </div>
-<img src="images/web/pic5.png" width="40%" height="40%">
-<img src="images/web/pic6.png" width="40%" height="40%">
 <div>
+<img src="images/web/pic6.png" width="40%" height="40%">
 <img src="images/web/pic7.png" width="40%" height="40%">
+</div>
+<div>
 <img src="images/web/pic8.png" width="40%" height="40%">
 </div>
 
