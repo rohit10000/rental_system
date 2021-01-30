@@ -104,5 +104,22 @@ Screenshots for the system are as follows:
 <img src="images/web/pic8.png" width="40%" height="40%">
 </div>
 
+### Mobile UI
 
+<div>
+<img src="images/mobile/pic1.png" width="30%">
+<img src="images/mobile/pic2.png" width="30%">
+<img src="images/mobile/pic3.png" width="30%">
+</div>
+
+<div>
+<img src="images/mobile/pic4.png" width="30%">
+<img src="images/mobile/pic5.png" width="30%">
+<img src="images/mobile/pic6.png" width="30%">
+</div>
+
+<div>
+<img src="images/mobile/pic7.png" width="30%">
+<img src="images/mobile/pic8.png" width="30%">
+</div>
 Happy coding!!
